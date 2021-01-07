@@ -8,7 +8,7 @@ For the context, Fulbright STEM Club need to find common free time of the member
 
 ### For beginners (using Thonny)
 
-1. In Github, download the code by clicking in `Code` and `Download ZIP`
+1. In Github, download the code by clicking in `Code` and `Download ZIP`. (like [this](https://github.com/npnkhoi/When2STEM/blob/master/assets/how%20to%20download%20code.png))
 
 2. Install the libraries
 
@@ -31,3 +31,5 @@ For the context, Fulbright STEM Club need to find common free time of the member
 1. Launch `main.py` in your favorite way. For Thonny, click `Run` (or press `F5`). 
 2. Accept any pop up about permission blabla. There's no virus here.
 3. Enjoy the automation!
+
+![when2stem demo](https://github.com/npnkhoi/When2STEM/blob/master/assets/when2stem_demo.gif)
