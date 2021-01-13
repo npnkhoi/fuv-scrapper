@@ -26,6 +26,12 @@ For the context, Fulbright STEM Club need to find common free time of the member
 * `pip install pipenv` (for package management)
 * `pipenv install` (automatically install all required packages shown in `pipfile.lock`)
 
+### For both
+
+1. Download the appropriate driver of your web browser. For Chrome, go to https://chromedriver.chromium.org/.
+
+2. Create a env.py file following the format of env_sample.py. This file contains 3 things: the location of the driver, your outlook username and password.
+
 ## Execution
 
 1. Launch `main.py` in your favorite way. For Thonny, click `Run` (or press `F5`). 
