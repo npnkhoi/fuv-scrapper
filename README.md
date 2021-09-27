@@ -26,7 +26,7 @@ For the context, Fulbright STEM Club need to find common free time of the member
 * `pip install pipenv` (for package management)
 * `pipenv install` (automatically install all required packages shown in `pipfile.lock`)
 
-### For both
+### After that, for both
 
 1. Download the appropriate driver of your web browser. For Chrome, go to https://chromedriver.chromium.org/.
 

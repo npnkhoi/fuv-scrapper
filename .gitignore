@@ -1,8 +1,8 @@
 # Custom ignore
 env.py
 data
-test.py
-data.csv
+exp.py
+chromedriver
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
