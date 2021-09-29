@@ -1,41 +1,15 @@
-# When2STEM:  automated scheduler for a student club
-
-## Description
-
-For the context, Fulbright STEM Club need to find common free time of the members for club meeting. Therefore, we collect data of (1) courses that members take and (2) schedule of all courses. Then we run algorithm to find the common free time slots. This repo contains the code for those tasks.
-
+# When2STEM:  Course information scrapper at Fulbright University Vietnam.
 ## Installation
 
-### For beginners (using Thonny)
-
-1. In Github, download the code by clicking in `Code` and `Download ZIP`. (like [this](https://github.com/npnkhoi/When2STEM/blob/master/assets/how%20to%20download%20code.png))
-
-2. Install the libraries
-
-   We will install 2 packages: `selenium` and `pandas`. For each of these, in Thonny, go to `Tools -> Packages` and search the name of each package, then install them.
-
-3. You're done. Now move to the **Execution** part.
-
-### For pros
-
 1. Clone this repo
-
 2. Install packages:
-
 * In your terminal, `cd` to this project folder
-* `pip install pipenv` (for package management)
-* `pipenv install` (automatically install all required packages shown in `pipfile.lock`)
-
-### After that, for both
-
-1. Download the appropriate driver of your web browser. For Chrome, go to https://chromedriver.chromium.org/.
-
-2. Create a env.py file following the format of env_sample.py. This file contains 3 things: the location of the driver, your outlook username and password.
+* Run `pip install pipenv` (install `pipenv` for package management)
+* Run `pipenv install` (automatically install all required packages)
+3. Download the appropriate driver of your web browser, put it into this project folder. For Chrome, go to https://chromedriver.chromium.org/.
+4. Run `cp env_sample.py env.py`, then edit the content of `env.py`. This file contains 3 things: the location of the browser driver (step 3), your Outlook username and password.
 
 ## Execution
-
-1. Launch `main.py` in your favorite way. For Thonny, click `Run` (or press `F5`). 
-2. Accept any pop up about permission blabla. There's no virus here.
+1. Run `pipenv shell` -> activate virtual environment.
+2. Run `python -m src.main`
 3. Enjoy the automation!
-
-![when2stem demo](https://github.com/npnkhoi/When2STEM/blob/master/assets/when2stem_demo.gif)
