@@ -1,9 +1,13 @@
-from env import USERNAME, PASSWORD, CHROME_DRIVER_PATH
+from time import sleep
+from env import USERNAME, PASSWORD
 from src.utils import click_element, click_element_among, get_element, get_element_among, get_elements
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-def login(browser):
+TERM_SELECTOR = 'triggerLinkText.selectedListView.slds-page-header__title'
+TERM_OPTION = 'virtualAutocompleteOptionText'
+
+def login(browser) -> None:
 	print('Logging into OneStop ...')
 	browser.get('https://onestop.fulbright.edu.vn/')
 
@@ -23,12 +27,12 @@ def login(browser):
 	click_element(browser, By.ID, 'idSIButton9')
 	print('Successfully logged in')
 
-def access_enrollment(browser):
+def access_enrollment(browser, term_id: int) -> None:
 	print('Going to "My Enrollment" ...')
 	# Go to 'My enrollment'
 	click_element_among(browser, 'main-box', 2)
 
-	# Go to Spring Semester
-	# click_element(browser, By.CLASS_NAME, 'triggerLinkTextAndIconWrapper.slds-p-right--x-large')
-	# click_element_among(browser, 'forceVirtualAutocompleteMenuOption', 2)
-	# sleep(1.5)
+	# Go to targeted term
+	click_element(browser, By.CLASS_NAME, TERM_SELECTOR)
+	click_element_among(browser, TERM_OPTION, term_id)
+	sleep(1.5)

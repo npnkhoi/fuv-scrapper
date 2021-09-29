@@ -1,5 +1,9 @@
 """ Utils """
-from typing import List
+from datetime import datetime
+import json
+import os
+import subprocess
+from typing import Dict
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -23,17 +27,24 @@ def get_element_among(browser, key, id):
 	return element
 
 def click_element_among(browser, key, id):
-	# print('start waiting 10 seconds')
-	# print('done waiting')
-	# print('list of among:', browser.find_elements_by_class_name(key))
 	# WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.CLASS_NAME, key)))
 	# element = browser.find_elements_by_class_name(key)[id]
 	get_element_among(browser, key, id).click()
 
 """ Others """
-def save_data(data):
-	print('Save data to "data.csv" file')
+
+def current_time():
+	return datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+
+def save_csv(data):
 	print('data =', data)
 	df = pd.DataFrame(data)
 	print(df)
 	df.to_csv('data.csv')
+
+def save_json(data: Dict, timestamp: str) -> None:
+	subprocess.run(['mkdir', '-p', os.path.join('logs', timestamp)])
+	for key, value in data.items():
+		json.dump(value, open(os.path.join('logs', timestamp, key + '.json') , 'w+'))
+	print('Data saved at', timestamp)
+	print('Now is', current_time())

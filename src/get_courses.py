@@ -1,3 +1,4 @@
+from selenium.webdriver.remote.webdriver import WebDriver
 from src.parser import get_categories, get_schedule
 from time import sleep
 from src.utils import click_element_among, get_element, get_element_among, get_elements
@@ -11,17 +12,17 @@ METADATA = 'slds-grid.slds-gutters_small'
 # DESCRIPTION = 'test-id__section-content.slds-section__content.section__content'
 CURRENT_TERM = 'Fall' # NOTICE: Update this!
 
-def scroll(browser):
+def scroll(browser: WebDriver):
 	"""Scroll the course list to make more course visible"""
 	get_element(browser, By.CLASS_NAME, 'uiScroller.scroller-wrapper.scroll-bidirectional.native')
 	SCROLLING_SCRIPT = 'document.getElementsByClassName("uiScroller scroller-wrapper scroll-bidirectional native")[0].scrollTo(0, 10000)'
 	browser.execute_script(SCROLLING_SCRIPT)
 	sleep(1)
 
-def num_courses(browser):
+def num_courses(browser: WebDriver):
 	return len(browser.find_elements_by_class_name(LINK_TO_COURSE)) // 2
 
-def show_all(browser, count=None):
+def show_all(browser: WebDriver, count=None):
 	sleep(1)
 	if count is None:
 		scroll(browser)
@@ -32,12 +33,12 @@ def show_all(browser, count=None):
 			scroll(browser)
 			print('scrolling')
 
-def get_course_schedule(browser):
+def get_course_schedule(browser: WebDriver):
 	# Wait to load
 	get_element(browser, By.CLASS_NAME, LINK_TO_COURSE)
 	show_all(browser)
-	# count_courses = num_courses(browser)
-	count_courses = 1
+	count_courses = num_courses(browser)
+	# count_courses = 1
 	print(f"{count_courses} courses found. Gonna get their schedules ...")
 
 	# Iterate through courses
@@ -64,6 +65,7 @@ def get_course_schedule(browser):
 		course['credits'] = metadata[3]
 		metadata = get_element_among(browser, METADATA, 2).text.split('\n')
 		course['instructor'] = metadata[2]
+		course['url'] = browser.current_url
 		
     # Get description (if not cancelled)
 		status = metadata[-1]
