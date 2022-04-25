@@ -24,7 +24,7 @@ def login(browser) -> None:
 	click_element(browser, By.ID, 'idSIButton9')
 
 	# 'Yes' (stayed sign in)
-	click_element(browser, By.ID, 'idSIButton9')
+	click_element(browser, By.ID, 'idSIButton9', timeout=60)
 	print('Successfully logged in')
 
 def access_enrollment(browser, term_id: int) -> None:
@@ -33,6 +33,7 @@ def access_enrollment(browser, term_id: int) -> None:
 	click_element_among(browser, 'main-box', 2)
 
 	# Go to targeted term
+	print('Going to targeted term')
 	click_element(browser, By.CLASS_NAME, TERM_SELECTOR)
 	click_element_among(browser, TERM_OPTION, term_id)
 	sleep(1.5)
