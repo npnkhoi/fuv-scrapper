@@ -8,7 +8,7 @@ LINK_TO_COURSE = 'slds-truncate.outputLookupLink'
 DESCRIPTION = 'slds-rich-text-editor__output.uiOutputRichText.forceOutputRichText'
 SCHEDULE = 'forceRecordLayout.slds-table.slds-no-row-hover.slds-table_cell-buffer.slds-table_fixed-layout.uiVirtualDataGrid--default.uiVirtualDataGrid'
 METADATA = 'slds-grid.slds-gutters_small'
-CURRENT_TERM = 'Summer' # FIXME: Update this!
+CURRENT_TERM = 'Fall' # FIXME: Update this!
 
 def scroll(browser: WebDriver):
 	"""Scroll the course list to make more course visible"""

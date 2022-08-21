@@ -11,7 +11,7 @@ import pandas as pd
 
 """ Selenium utils """
 
-DEFAULT_WAIT = 5
+DEFAULT_WAIT = 10
 def get_element(browser, by_method, key, timeout=DEFAULT_WAIT):
 	return WebDriverWait(browser, timeout).until(EC.visibility_of_element_located((by_method, key)))
 

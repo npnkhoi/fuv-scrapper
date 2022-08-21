@@ -3,11 +3,12 @@ from env import USERNAME, PASSWORD
 from src.utils import click_element, click_element_among, get_element, get_element_among, get_elements
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import Chrome
 
 TERM_SELECTOR = 'triggerLinkText.selectedListView.slds-page-header__title'
 TERM_OPTION = 'virtualAutocompleteOptionText'
 
-def login(browser) -> None:
+def login(browser: Chrome) -> None:
 	print('Logging into OneStop ...')
 	browser.get('https://onestop.fulbright.edu.vn/')
 
@@ -19,11 +20,15 @@ def login(browser) -> None:
 
 	password_field = get_element(browser, By.ID, 'i0118')
 	password_field.send_keys(PASSWORD)
-
 	# 'Sign in' button
 	click_element(browser, By.ID, 'idSIButton9')
 
+	# Start authentication
+	current = browser.switch_to.active_element
+	current.send_keys(Keys.RETURN)
+
 	# 'Yes' (stayed sign in)
+	print('You have 60 seconds for 2FA authentication')
 	click_element(browser, By.ID, 'idSIButton9', timeout=60)
 	print('Successfully logged in')
 
