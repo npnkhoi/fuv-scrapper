@@ -1,7 +1,6 @@
-from src.get_courses import get_course_schedule
+from src.get_courses import get_course_schedule, CURRENT_TERM
 from selenium import webdriver
 from env import CHROME_DRIVER_PATH, FIREFOX_DRIVER_PATH
-from get_courses import CURRENT_TERM
 from src.init import access_enrollment, login
 import click
 from src.utils import current_time, save_json
