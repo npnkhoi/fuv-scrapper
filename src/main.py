@@ -1,6 +1,6 @@
 from src.get_courses import get_course_schedule, CURRENT_TERM
 from selenium import webdriver
-from env import CHROME_DRIVER_PATH, FIREFOX_DRIVER_PATH
+from env import CHROME_DRIVER_PATH
 from src.init import access_enrollment, login
 import click
 from src.utils import current_time, save_json
@@ -12,10 +12,6 @@ from selenium.webdriver.chrome.options import Options
 def main(term_id, headless):
 	print(f"Current term is: {CURRENT_TERM} -- Please update if needed.")
 	tic = current_time()
-	# PROFILE = '/home/khoi/snap/firefox/common/.cache/mozilla/firefox/t466tqbs.Khoi/'
-	# fp = webdriver.FirefoxProfile(PROFILE)
-	# browser = webdriver.Firefox(executable_path=FIREFOX_DRIVER_PATH, firefox_profile=fp)
-	
 	options = Options()
 	options.headless = headless
 	options.add_argument("window-size=1920,1080")
