@@ -25,7 +25,6 @@ def main(term_id, headless):
 	print('Start login ...')
 	login(browser)
 
-	# browser.set_window_size(1920, 1080)
 	size = browser.get_window_size()
 	print("Window size: width = {}px, height = {}px".format(size["width"], size["height"]))
 
