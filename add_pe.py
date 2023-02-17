@@ -1,15 +1,16 @@
 import json
 import os
+import sys
 
-folder = '2023-01-31-12-34-56'
+folder = sys.argv[1]
 file = '2022-2023 Spring 2023 Term.json'
 folder2 = folder + '_pe'
-os.mkdir(f'logs/{folder2}')
+# os.mkdir(f'logs/{folder2}')
 
 a = json.load(open(f'logs/{folder}/{file}', 'r'))
 b = json.load(open('assets/pe.json', 'r'))
 
-c = b + a
+c = a + b
 
 print(len(a), len(b), len(c))
 
