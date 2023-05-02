@@ -8,7 +8,7 @@ LINK_TO_COURSE = 'slds-truncate.outputLookupLink'
 DESCRIPTION = 'slds-rich-text-editor__output.uiOutputRichText.forceOutputRichText'
 SCHEDULE = 'forceRecordLayout.slds-table.slds-no-row-hover.slds-table_cell-buffer.slds-table_fixed-layout.uiVirtualDataGrid--default.uiVirtualDataGrid'
 METADATA = 'slds-grid.slds-gutters_small'
-CURRENT_TERM = 'Spring' # FIXME: Update this!
+CURRENT_TERM = 'Summer' # FIXME: Update this!
 
 def scroll(browser: WebDriver):
 	"""Scroll the course list to make more course visible"""
@@ -18,7 +18,7 @@ def scroll(browser: WebDriver):
 	sleep(1)
 
 def num_courses(browser: WebDriver):
-	return len(browser.find_elements_by_class_name(LINK_TO_COURSE)) // 2
+	return len(browser.find_elements_by_class_name(LINK_TO_COURSE)) 
 
 def show_all(browser: WebDriver, count=None):
 	sleep(1)
@@ -42,14 +42,14 @@ def get_course_schedule(browser: WebDriver):
 	# Iterate through courses
 	data = {}
 	for i in range(0, count_courses):
-		print('Getting coures number', i)
+		print('Getting course number', i)
 		course = {}
 		
 		# wait to load
 		get_elements(browser, By.CLASS_NAME, LINK_TO_COURSE) 
 		sleep(1)
 		show_all(browser, i + 1)
-		click_element_among(browser, LINK_TO_COURSE, i * 2)
+		click_element_among(browser, LINK_TO_COURSE, i)
 		sleep(1)
 
     # Get all the easy fields

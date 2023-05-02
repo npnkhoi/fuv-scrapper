@@ -8,12 +8,12 @@ from selenium.webdriver.chrome.options import Options
 
 @click.command()
 @click.argument('term-id', type=int) # 1-based, from Fall2021
-@click.option('--headless', type=bool, default=True) # 1-based, from Fall2021
-def main(term_id, headless):
+# @click.option('--headless', type=bool, default=True) # 1-based, from Fall2021
+def main(term_id):
 	print(f"Current term is: {CURRENT_TERM} -- Please update if needed.")
 	tic = current_time()
 	options = Options()
-	options.headless = headless
+	# options.headless = True
 	options.add_argument("window-size=1920,1080")
 	browser = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH, options=options)
 	print ("Headless Chrome Initialized")
